@@ -47,3 +47,5 @@ sudo apt clean
 1. **NVM Management:** Continue using `nvm install` and `nvm use` for Node.js projects to keep the global `/usr/bin/` directory clean.
 2. **Conda Environments:** Create dedicated environments for bioinformatics tasks (e.g., `conda create -n bio_env python=3.9`) to isolate specific tool chains.
 3. **OS Stability:** Prioritize `apt` only for core system utilities and hardware-specific drivers to maintain long-term OS health.
+
+check [[README]]]

@@ -1,4 +1,4 @@
-# control_tower  <My Linux Infrastructure & Bio-IT Setup>
+# control_tower  <My Linux Infrastructure & Bio-IT Setup>
 
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![Conda](https://img.shields.io/badge/Conda-Miniforge-44A833?logo=anaconda&logoColor=white)](https://conda.io/)
@@ -21,42 +21,39 @@ To maintain a stable and reproducible research environment, I follow these princ
 ## 📂 Repository Structure
 ```text
 .
-├── configs/           # Backup of dotfiles (e.g., .bashrc, .condarc)
-├── docs/              # System logs and research documentation
-│   └── cleanup/       # Logs of package purges and optimizations
-├── environments/      # Exported Conda environment YAML files
-├── scripts/           # Automation shell scripts (.sh)
-└── README.md          # Project roadmap and guide
+├── configs/            # Backup of dotfiles (e.g., .bashrc, .condarc)
+├── docs/               # System logs and research documentation
+│   ├── cleanup/        # Logs of package purges and optimizations
+│   └── install_logs/   # Reports for isolated software installations
+├── environments/       # Exported Conda environment YAML files
+├── scripts/            # Automation shell scripts (.sh)
+└── README.md           # Project roadmap and guide
 ```
+
 ## Usage & Maintenance
-1. How to Backup your current .bashrc
+1. **Backup your current .bashrc**
+   Whenever you update your aliases or paths, run:
+   ```bash
+   cp ~/.bashrc ./configs/ && git add . && git commit -m "update: sync .bashrc" && git push
+   ```
 
-Whenever you update your aliases or paths, run:
-Bash
+2. **Export Conda Environment**
+   To save your bioinformatics environment settings:
+   ```bash
+   conda env export > ./environments/bio_env.yml
+   ```
 
-    cp ~/.bashrc ./configs/ && git add . && git commit -m "update: sync .bashrc" && git push
+3. **Standalone Software Isolation**
+   Check out the log for software installed via local sandboxing (e.g., Portable Wine):
+   - [2026-03-21 KakaoTalk Local Install](./docs/install_logs/2026-03-21_KakaoTalk_Local_Install.md)
 
-2. How to Export Conda Environment
+4. **System Cleanup History**
+   Check out my latest system optimization log:
+   - [2026-03-19 Cleanup Report](./docs/cleanup/)
 
-To save your bioinformatics environment settings:
-Bash
-
- 
-    conda env export > ./environments/bio_env.yml
-
-
-3. System Cleanup History
-
-Check out my latest system optimization log:
-
-    2026-03-19 Cleanup Report
-
- ## Roadmap
-
-    [ ] Automate dotfile symlinking via a setup script in /scripts.
-
-    [ ] Set up Docker containers for legacy bioinformatics tools.
-
-    [ ] Integrate Obsidian vault sync with this repository.
+## Roadmap
+- [ ] Automate dotfile symlinking via a setup script in /scripts.
+- [ ] Set up Docker containers for legacy bioinformatics tools.
+- [ ] Integrate Obsidian vault sync with this repository.
 
 Maintained by Jun, Biomedical Systems student at Soongsil University.
