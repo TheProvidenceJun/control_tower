@@ -57,6 +57,22 @@ git push
 
 ## Roadmap
 - [x] Apply dotfile symlinking for core configs (e.g., `.bashrc`). 
+	## 🚀 How to Setup on a New Machine
+	When you clone this repository to a new Linux machine, run the following commands to link the configurations:
+```bash
+
+mv ~/.bashrc ~/.bashrc.backup
+
+ln -s ~/Documents/obsidian/control_tower/configs/.bashrc ~/.bashrc
+
+
+or 
+chmod +x ~/Documents/obsidian/control_tower/scripts/setup.sh
+~/Documents/obsidian/control_tower/scripts/setup.sh 
+
+```
+
+
 - [ ] Create an automated bootstrapping script (`setup.sh`) in `/scripts` for one-click setup on a new machine. 
 - [ ] Set up Docker containers for legacy bioinformatics tools. 
 - [ ] Integrate Obsidian vault sync with this repository.
