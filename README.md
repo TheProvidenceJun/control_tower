@@ -31,11 +31,15 @@ To maintain a stable and reproducible research environment, I follow these princ
 ```
 
 ## Usage & Maintenance
-1. **Backup your current .bashrc**
-   Whenever you update your aliases or paths, run:
-   ```bash
-   cp ~/.bashrc ./configs/ && git add . && git commit -m "update: sync .bashrc" && git push
-   ```
+1.**Dotfiles Management (Symlink)** `~/.bashrc` is now dynamically tracked via a symbolic link. You do not need to manually copy the file anymore. Whenever you edit `~/.bashrc` in your home directory, simply navigate to this repository and push the changes: 
+```
+bash 
+cd ~/Documents/obsidian/control_tower 
+git add configs/.bashrc 
+git commit -m "update: modified .bashrc aliases or paths" 
+git push
+```
+
 
 2. **Export Conda Environment**
    To save your bioinformatics environment settings:
@@ -52,8 +56,9 @@ To maintain a stable and reproducible research environment, I follow these princ
    - [2026-03-19 Cleanup Report](./docs/cleanup/)
 
 ## Roadmap
-- [ ] Automate dotfile symlinking via a setup script in /scripts.
-- [ ] Set up Docker containers for legacy bioinformatics tools.
+- [x] Apply dotfile symlinking for core configs (e.g., `.bashrc`). 
+- [ ] Create an automated bootstrapping script (`setup.sh`) in `/scripts` for one-click setup on a new machine. 
+- [ ] Set up Docker containers for legacy bioinformatics tools. 
 - [ ] Integrate Obsidian vault sync with this repository.
 
 Maintained by Jun, Biomedical Systems student at Soongsil University.
